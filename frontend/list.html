@@ -1,0 +1,22 @@
+<nav class='tabs'>
+  <a ui-sref-active="active" ui-sref="list">List</a>
+  <a ui-sref-active="active" ui-sref="new">New</a>
+  <a ui-sref-active="active" ui-sref="about">About</a>
+</nav>
+
+<ul id="criminals">
+  <li ng-repeat="criminal in all" data-id="{{criminal._id}}">
+    <a href="#" editable-text="criminal.name">
+      <strong> {{ criminal.name || "empty" }}
+      </strong>
+    </a>
+
+    <a href="#" editable-text="criminal.location">
+      <em>{{criminal.location || "empty" }}</em>
+    </a>
+
+    <span class='status {{criminal.status | lowercase }}'>{{criminal.status | uppercase}}</span>
+
+    <button class='delete' ng-click="deleteCriminal(criminal)">X</button>
+  </li>
+</ul>
